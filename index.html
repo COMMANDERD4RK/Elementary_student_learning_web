@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BlockLearn Academy</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<section class="login-page" id="loginPage">
+  <div class="login-card">
+    <div class="logo"><div class="cube">B</div><span>BLOCKLEARN</span></div>
+    <span class="login-emoji" aria-hidden="true">🚀</span>
+    <h1>Welcome back, learner!</h1>
+    <p>Sign in to jump back into your learning world.</p>
+    <form id="loginForm">
+      <label for="loginEmail">Email</label>
+      <input id="loginEmail" name="email" type="email" autocomplete="username" placeholder="you@gmail.com" aria-describedby="emailFeedback" required>
+      <small class="auth-feedback" id="emailFeedback" aria-live="polite"></small>
+      <label for="StudentId">Student ID</label>
+      <input id="StudentId" name="studentId" type="text" inputmode="numeric" autocomplete="off" placeholder="Enter your student ID" minlength="6" maxlength="11" pattern="[0-9]{6,11}" aria-describedby="idFeedback" required>
+      <small class="auth-feedback" id="idFeedback" aria-live="polite">Enter a valid student ID with 6–11 digits.</small>
+      <label for="loginPassword">Password</label>
+      <input id="loginPassword" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" minlength="8" pattern="(?=.*[A-Za-z])(?=.*[0-9]).{8,}" title="Use at least 8 characters, including a letter and a number." aria-describedby="passwordFeedback" required>
+      <small class="auth-feedback" id="passwordFeedback" aria-live="polite">Use at least 8 characters, including a letter and a number.</small>
+      <label for="loginGrade">Grade level</label>
+      <select id="loginGrade" name="grade" required>
+        <option value="" selected disabled>Choose your grade</option>
+        <option value="1">Grade 1</option>
+        <option value="2">Grade 2</option>
+        <option value="3">Grade 3</option>
+        <option value="4">Grade 4</option>
+        <option value="5">Grade 5</option>
+        <option value="6">Grade 6</option>
+      </select>
+      <section class="parent-agreement" aria-labelledby="parentAgreementTitle">
+        <h2 id="parentAgreementTitle">Parent or guardian agreement</h2>
+        <p>BlockLearn offers grade-based lessons and short quizzes in subjects such as math, science, and English. Correct answers earn 10 XP, and progress is saved in this browser on this device.</p>
+        <p>This is a learning demo, not an account service. Email and password are only checked in your browser and are not sent or saved. Do not enter a real password or sensitive personal information.</p>
+        <label class="agreement-check" for="parentAgreement">
+          <input id="parentAgreement" name="parentAgreement" type="checkbox" required>
+          A parent or guardian has reviewed this information and agrees to the learner using the site.
+        </label>
+      </section>
+      <button class="green login-submit" type="submit">LET'S LEARN ▶</button>
+    </form>
+
+    <section class="enrollment-request" aria-labelledby="enrollmentRequestTitle">
+      <h2 id="enrollmentRequestTitle">Need to join a class?</h2>
+      <form id="enrollmentRequestForm" class="teacher-form">
+        <label for="requestStudentName">Student name</label>
+        <input id="requestStudentName" name="requestStudentName" type="text" placeholder="Enter your name" required>
+
+        <label for="requestStudentId">Student ID</label>
+        <input id="requestStudentId" name="requestStudentId" type="text" inputmode="numeric" placeholder="Enter your student ID" pattern="[0-9]{6,11}" required>
+
+        <label for="requestGrade">Grade level</label>
+        <select id="requestGrade" name="requestGrade" required>
+          <option value="" selected disabled>Choose your grade</option>
+          <option value="1">Grade 1</option>
+          <option value="2">Grade 2</option>
+          <option value="3">Grade 3</option>
+          <option value="4">Grade 4</option>
+          <option value="5">Grade 5</option>
+          <option value="6">Grade 6</option>
+        </select>
+
+        <label for="requestClassName">Class name</label>
+        <input id="requestClassName" name="requestClassName" type="text" placeholder="e.g. Grade 3 - Section A" required>
+
+        <label for="requestClassSection">Class section</label>
+        <input id="requestClassSection" name="requestClassSection" type="text" placeholder="A, B, C, or Homeroom" required>
+
+        <button class="blue" type="submit">Send enrollment request</button>
+        <small class="auth-feedback" id="enrollmentRequestStatus" aria-live="polite"></small>
+      </form>
+    </section>
+
+    <p class="login-note"><a href="teacher.html">Teacher portal</a></p>
+    <p class="login-note">Your grade sets the quiz level and adds a subject made for your grade. Core quizzes use levels for Grades 1–2, 3–4, and 5–6. Demo sign-in only; no account is created.</p>
+  </div>
+</section>
+
+<div id="appShell" class="hidden">
+<header>
+  <div class="logo"><div class="cube">B</div><span>BLOCKLEARN</span></div>
+  <div class="header-actions">
+    <div class="pill" id="gradeBadge">Grade 1</div>
+    <div class="pill">⭐ <span id="topPoints">0</span> XP</div>
+    <button class="login" id="logoutButton" type="button">Sign out</button>
+  </div>
+</header>
+
+<main>
+    
+  <section class="hero">
+    <span class="floating f1">⭐</span>
+    <span class="floating f2">🧱</span>
+    <span class="floating f3">🚀</span>
+    <h1>Learn. Play. Level Up!</h1>
+    <p>Welcome to your blocky learning world! Explore school subjects, answer quizzes, collect rewards, and become a learning champion.</p>
+    <button class="green" onclick="document.getElementById('subjectsTitle').scrollIntoView({behavior:'smooth'})">START LEARNING ▶</button>
+    <div class="avatar" aria-label="Animated block character">
+      <div class="hair"></div>
+      <div class="head"></div>
+      <div class="eye e1"></div>
+      <div class="eye e2"></div>
+      <div class="body"></div>
+      <div class="leg l"></div>
+      <div class="leg r"></div>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="stat"><strong id="lessonsDone">0/6</strong><span>Subjects completed</span></div>
+    <div class="stat"><strong id="quizScore">0</strong><span>Correct answers</span></div>
+    <div class="stat"><strong id="level">Level 1</strong><span>Learning level</span></div>
+  </section>
+
+  <div class="section-title" id="subjectsTitle">
+    <h2>🎮 Subjects for Your Grade</h2>
+    <span class="pill">Choose a subject to play</span>
+  </div>
+  <section class="subjects" id="subjects"></section>
+
+  <section class="panel reward-center" aria-labelledby="rewardsTitle">
+    <div class="reward-heading">
+      <div>
+        <p class="reward-eyebrow">YOUR TROPHY CORNER</p>
+        <h2 id="rewardsTitle">🏆 Your Rewards</h2>
+        <p>Every answer helps you grow. Keep going, superstar!</p>
+      </div>
+      <span class="reward-mascot" aria-hidden="true">🎉</span>
+    </div>
+    <div class="reward-celebration" aria-live="polite">
+      <span class="reward-star" id="rewardIcon" aria-hidden="true">🌟</span>
+      <div>
+        <h3 id="rewardHeadline">Your adventure is just beginning!</h3>
+        <p id="rewardMessage">Play a subject, earn XP, and collect awesome badges!</p>
+      </div>
+    </div>
+    <div class="level-progress-copy">
+      <strong id="rewardLevel">Level 1</strong>
+      <span id="levelProgressText">0 / 50 XP to next level</span>
+    </div>
+    <div class="level-progress-track" role="progressbar" aria-label="Progress to next level" aria-valuemin="0" aria-valuemax="50" aria-valuenow="0">
+      <span id="levelProgressBar"></span>
+    </div>
+    <h3 class="badge-title">✨ Badges you’ve earned</h3>
+    <div id="rewards"><span class="reward">🌱 Beginner Learner</span></div>
+  </section>
+</main>
+
+<footer>BlockLearn Academy · A playful educational demo for elementary learners</footer>
+</div>
+<script src="script.js"></script>
+
+</body>
+</html>

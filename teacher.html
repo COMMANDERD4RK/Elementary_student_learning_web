@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teacher Portal · BlockLearn Academy</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<section class="login-page" id="teacherLoginView">
+  <div class="login-card">
+    <div class="logo"><div class="cube">B</div><span>BLOCKLEARN</span></div>
+    <span class="login-emoji" aria-hidden="true">👩‍🏫</span>
+    <h1>Teacher portal</h1>
+    <p>Sign in to manage class enrollment and student access.</p>
+
+    <form id="teacherLoginForm">
+      <label for="teacherName">Teacher name</label>
+      <input id="teacherName" name="teacherName" type="text" placeholder="Enter your full name" autocomplete="name" required>
+
+      <label for="teacherEmail">Email</label>
+      <input id="teacherEmail" name="teacherEmail" type="email" autocomplete="username" placeholder="teacher@school.com" aria-describedby="teacherEmailFeedback" required>
+      <small class="auth-feedback" id="teacherEmailFeedback" aria-live="polite"></small>
+
+      <label for="teacherPassword">Password</label>
+      <input id="teacherPassword" name="teacherPassword" type="password" autocomplete="current-password" placeholder="Enter your password" minlength="8" pattern="(?=.*[A-Za-z])(?=.*[0-9]).{8,}" title="Use at least 8 characters, including a letter and a number." aria-describedby="teacherPasswordFeedback" required>
+      <small class="auth-feedback" id="teacherPasswordFeedback" aria-live="polite">Use at least 8 characters, including a letter and a number.</small>
+
+      <button class="green login-submit" type="submit">OPEN CLASS ROSTER</button>
+    </form>
+
+    <p class="login-note"><a href="index.html">← Back to student sign-in</a></p>
+  </div>
+</section>
+
+<div id="teacherDashboard" class="teacher-dashboard hidden">
+  <header>
+    <div class="logo"><div class="cube">B</div><span>BLOCKLEARN</span></div>
+    <div class="header-actions">
+      <div class="pill" id="teacherBadge">Teacher dashboard</div>
+      <button class="login" id="logoutTeacherButton" type="button">Sign out</button>
+    </div>
+  </header>
+
+  <main class="teacher-main">
+    <section class="panel teacher-welcome">
+      <h1>Welcome, <span id="teacherGreeting">Teacher</span></h1>
+      <p id="teacherSummary">Enroll your class and keep track of student IDs for this learning demo.</p>
+    </section>
+
+    <section class="panel teacher-form-panel">
+      <h2>Enroll a class</h2>
+      <form id="classEnrollmentForm" class="teacher-form">
+        <label for="className">Class name</label>
+        <input id="className" name="className" type="text" placeholder="Grade 3 - Section A" required>
+
+        <label for="classGrade">Grade level</label>
+        <select id="classGrade" name="classGrade" required>
+          <option value="" selected disabled>Choose your grade</option>
+          <option value="1">Grade 1</option>
+          <option value="2">Grade 2</option>
+          <option value="3">Grade 3</option>
+          <option value="4">Grade 4</option>
+          <option value="5">Grade 5</option>
+          <option value="6">Grade 6</option>
+        </select>
+
+        <label for="classSection">Class section</label>
+        <input id="classSection" name="classSection" type="text" placeholder="A, B, C, or Homeroom" required>
+
+        <label for="studentIds">Student IDs</label>
+        <textarea id="studentIds" name="studentIds" rows="5" placeholder="123456&#10;234567&#10;345678" required></textarea>
+
+        <button class="green" type="submit">Save class enrollment</button>
+        <small class="auth-feedback" id="enrollmentStatus" aria-live="polite"></small>
+      </form>
+    </section>
+
+    <section class="panel teacher-classes-panel">
+      <h2>Current class enrollments</h2>
+      <div id="classList" class="class-list"></div>
+    </section>
+
+    <section class="panel teacher-requests-panel">
+      <h2>Enrollment requests</h2>
+      <div id="requestList" class="request-list"></div>
+    </section>
+  </main>
+</div>
+
+<script src="teacher.js"></script>
+</body>
+</html>

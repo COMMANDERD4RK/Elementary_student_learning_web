@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz Adventure · BlockLearn Academy</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="game-page">
+<header>
+  <a class="logo brand-link" href="index.html"><span class="cube">B</span><span>BLOCKLEARN</span></a>
+  <div class="header-actions">
+    <div class="pill" id="gradeBadge">Grade 1</div>
+    <div class="pill">⭐ <span id="topPoints">0</span> XP</div>
+    <a class="login back-link" href="index.html">← Worlds</a>
+  </div>
+</header>
+
+<main class="game-main">
+  <section class="game-hud">
+    <div>
+      <p class="game-eyebrow">YOUR NEXT ADVENTURE</p>
+      <h1 id="gameTitle">Quiz Adventure</h1>
+      <p id="gameDescription">Answer the questions to earn XP!</p>
+    </div>
+    <div class="level-badge">🗺️ <span id="gameLevel">WORLD 1</span></div>
+  </section>
+
+  <section class="game-card lesson-card" id="lessonCard">
+    <div class="lesson-progress-row">
+      <span>YOUR LESSON</span>
+      <span>Learn · Explore · Practice</span>
+    </div>
+    <div class="lesson-reading">
+      <p class="lesson-section-label">LEARNING GOAL</p>
+      <p id="gradeLessonText" class="lesson-goal"></p>
+      <h2 class="lesson-heading">The big idea</h2>
+      <p id="lessonText" class="lesson-copy"></p>
+    </div>
+    <section class="lesson-media" aria-label="Audio and visual lesson">
+      <div class="media-section-heading">
+        <div>
+          <p class="lesson-section-label">LISTEN TO THE LESSON</p>
+          <p class="media-description">Hear the lesson read aloud.</p>
+        </div>
+        <span class="media-icon" aria-hidden="true">🔊</span>
+      </div>
+      <div class="media-controls">
+        <button class="media-play-button" id="audioPlayButton" type="button">▶ Play audio</button>
+        <button class="media-secondary-button" id="audioStopButton" type="button" disabled>■ Stop</button>
+      </div>
+      <p class="media-status" id="audioStatus" aria-live="polite">Audio is ready when you are.</p>
+    </section>
+    <section class="lesson-video" aria-label="Animated visual lesson">
+      <div class="media-section-heading">
+        <div>
+          <p class="lesson-section-label">WATCH THE LESSON</p>
+          <p class="media-description">Follow a short animated visual recap.</p>
+        </div>
+        <span class="media-icon" aria-hidden="true">🎬</span>
+      </div>
+      <div class="video-scene" id="videoScene" aria-live="polite">
+        <span class="video-subject" id="videoSubject" aria-hidden="true"></span>
+        <p id="videoCaption">Press play to explore the lesson.</p>
+      </div>
+      <div class="media-controls">
+        <button class="media-play-button" id="videoPlayButton" type="button">▶ Play visual lesson</button>
+        <button class="media-secondary-button" id="videoStopButton" type="button" disabled>↺ Restart</button>
+      </div>
+      <p class="media-status" id="videoStatus" aria-live="polite">A short visual recap of this lesson.</p>
+    </section>
+    <div class="lesson-example" id="lessonExample" hidden aria-live="polite">
+      <span class="lesson-example-icon" aria-hidden="true">💡</span>
+      <div><strong>Let’s look at an example</strong><p id="lessonExampleText"></p></div>
+    </div>
+    <button class="lesson-example-button" id="revealExampleButton" type="button">Show me an example</button>
+    <button class="green next-game-button" id="beginQuizButton" type="button" disabled>Read the example to continue</button>
+  </section>
+
+  <section class="game-card hidden" id="gameCard">
+    <div class="game-progress-row">
+      <span id="questionCounter">QUESTION 1 / 3</span>
+      <span id="progressLabel">0% complete</span>
+    </div>
+    <div class="game-progress" role="progressbar" aria-label="Quiz progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="progressBar"></span></div>
+
+    <h2 id="question" class="game-question" tabindex="-1"></h2>
+    <div class="choices game-choices" id="choices"></div>
+    <div class="feedback game-feedback" id="feedback" aria-live="polite"></div>
+    <button class="green next-game-button" id="nextBtn" type="button" disabled>Choose an answer</button>
+  </section>
+
+  <section class="game-card game-result hidden" id="resultCard" aria-live="polite">
+    <span class="result-trophy" aria-hidden="true">🏆</span>
+    <p class="game-eyebrow">ADVENTURE COMPLETE</p>
+    <h2 id="resultTitle">World cleared!</h2>
+    <p id="resultMessage"></p>
+    <a class="game-home-button" href="index.html">Choose another world</a>
+  </section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
